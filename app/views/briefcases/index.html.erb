@@ -1,8 +1,11 @@
 <h1>Portfolio items</h1>
 
+<%= link_to "Create new portfolio item", new_briefcase_path %>
+
 <% @briefcase_items.each do |briefcase_item| %>
   <p><%= briefcase_item.title %></p>
   <p><%= briefcase_item.subtitle %></p>
   <p><%= briefcase_item.body %></p>
   <%= image_tag briefcase_item.thumb_image unless briefcase_item.thumb_image.nil? %>
+  <%= link_to "Edit", edit_briefcase_path(briefcase_item) %>
 <% end %>
