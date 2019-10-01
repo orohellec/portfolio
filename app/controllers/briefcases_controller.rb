@@ -1,6 +1,9 @@
 class BriefcasesController < ApplicationController
   before_action :set_briefcase, only: [:show, :edit, :update, :destroy]
 
+  def show
+  end
+
   def index
     @briefcase_items = Briefcase.all
   end
