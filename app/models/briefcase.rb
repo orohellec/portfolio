@@ -1,0 +1,2 @@
+class Briefcase < ApplicationRecord
+end
