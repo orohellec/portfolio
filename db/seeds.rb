@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+3.times do |topic|
+  Topic.create!(
+    title: "Topic #{topic}"
+  )
+end
+
+puts "3 topics created"
+
 10.times do |blog|
   Blog.create!(
     title: "blog post #{blog}",
@@ -13,7 +21,8 @@
      some content some content some content some content some content some content some 
      content some content some content some content some content some content some content 
      some content some content some content some content some content some content some 
-     content some content some content some content some content"
+     content some content some content some content some content",
+    topic_id: Topic.last.id
   )
 end
 
@@ -28,10 +37,26 @@ end
 
 puts "5 skills created"
 
-9.times do |portfolio_item|
+8.times do |portfolio_item|
   Briefcase.create!(
     title: "Portfolio title: #{portfolio_item}",
-    subtitle: "My service",
+    subtitle: "Ruby on Rails",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet mauris 
+      eget elit hendrerit tincidunt et quis lacus. Sed vitae venenatis est. Quisque vel neque a 
+      nulla hendrerit congue. Aenean pretium, orci ultrices placerat accumsan, tellus ante tincidunt 
+      tellus, nec hendrerit massa neque porttitor tellus. Curabitur metus velit, ultricies sed 
+      imperdiet placerat, pharetra vel ante. Maecenas vitae rutrum nunc, at pellentesque massa. 
+      Suspendisse sapien lacus, pharetra eget leo ac, posuere sodales leo. Nulla cursus tellus vitae 
+      sapien pharetra, in porta orci aliquet.",
+    main_image: "https://place-hold.it/600x400",
+    thumb_image: "https://place-hold.it/300x200"
+  )
+end
+
+1.times do |portfolio_item|
+  Briefcase.create!(
+    title: "Portfolio title: #{portfolio_item}",
+    subtitle: "Angular",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet mauris 
       eget elit hendrerit tincidunt et quis lacus. Sed vitae venenatis est. Quisque vel neque a 
       nulla hendrerit congue. Aenean pretium, orci ultrices placerat accumsan, tellus ante tincidunt 

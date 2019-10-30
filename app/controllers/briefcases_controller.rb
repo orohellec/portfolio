@@ -1,6 +1,10 @@
 class BriefcasesController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
+  def angular
+    @angular_portfolio_items = Briefcase.angular_portfolio_items
+  end
+
   def show
   end
 

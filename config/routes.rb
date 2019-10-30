@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # resources :briefcases, except: [:show]
   resources :portfolios, controller: 'briefcases', except: [:show]
+  get 'angular-items', to: 'briefcases#angular'
   get 'portfolio/:id', to: 'briefcases#show', as: 'portfolio_show'
 
   root to: 'pages#home'
