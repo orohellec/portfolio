@@ -37,6 +37,13 @@ class BriefcasesController < ApplicationController
     end
   end
 
+  def destroy
+    @briefcase_item.destroy
+    respond_to do |format|
+      format.html { redirect_to briefcases_url, notice: 'Blog was successfully destroyed.' }
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_briefcase

@@ -8,4 +8,5 @@
   <p><%= briefcase_item.body %></p>
   <%= image_tag briefcase_item.thumb_image unless briefcase_item.thumb_image.nil? %>
   <%= link_to "Edit", edit_briefcase_path(briefcase_item) %>
+  <%= link_to 'Destroy', briefcase_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
