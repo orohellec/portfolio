@@ -1,6 +1,13 @@
-<h1><%= @portfolio.title %></h1>
+<h1><%= @briefcase.title %></h1>
 
-<em><%= @portfolio.subtitle %></em>
+<em><%= @briefcase.subtitle %></em>
 
-<p><%= @portfolio.body %></p>
+<p><%= @briefcase.body %></p>
+
+<h2>Technologies Used:</h2>
+  <% @briefcase.technologies.each do |t| %>
+    <p><%= t.name %></p>
+  <% end %>
+</p>
+
 

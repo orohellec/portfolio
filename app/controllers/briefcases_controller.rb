@@ -1,27 +1,28 @@
 class BriefcasesController < ApplicationController
-  before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+  before_action :set_briefcase, only: [:show, :edit, :update, :destroy]
 
   def angular
-    @angular_portfolio_items = Briefcase.angular_portfolio_items
+    @angular_briefcase_items = Briefcase.angular_briefcase_items
   end
 
   def show
   end
 
   def index
-    @portfolios = Briefcase.all
+    @briefcases = Briefcase.all
   end
 
   def new
-    @portfolio = Briefcase.new
+    @briefcase= Briefcase.new
+    3.times { @briefcase.technologies.build }
   end
 
   def create
-    @portfolio = Briefcase.new(portfolio_params)
+    @briefcase = Briefcase.new(briefcase_params)
 
     respond_to do |format|
-      if @portfolio.save
-        format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully created.' }
+      if @briefcase.save
+        format.html { redirect_to briefcases_path, notice: 'briefcase was successfully created.' }
       else
         format.html { render :new }
       end
@@ -33,8 +34,8 @@ class BriefcasesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @portfolio.update(portfolio_params)
-        format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully updated.' }
+      if @briefcase.update(briefcase_params)
+        format.html { redirect_to briefcase_path, notice: 'briefcase was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -42,20 +43,20 @@ class BriefcasesController < ApplicationController
   end
 
   def destroy
-    @portfolio.destroy
+    @briefcase.destroy
     respond_to do |format|
-      format.html { redirect_to portfolios_url, notice: 'Blog was successfully destroyed.' }
+      format.html { redirect_to briefcase_url, notice: 'Blog was successfully destroyed.' }
     end
   end
 
   private
   # Use callbacks to share common setup or constraints between actions.
-  def set_portfolio
-    @portfolio = Briefcase.find(params[:id])
+  def set_briefcase
+    @briefcase = Briefcase.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def portfolio_params
-    params.require(:portfolio).permit(:title, :subtitle, :body)
+  def briefcase_params
+    params.require(:briefcase).permit(:title, :subtitle, :body, technologies_attributes: [:name])
   end
 end

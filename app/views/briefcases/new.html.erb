@@ -1,12 +1,12 @@
 <h1>Create a new portfolio item</h1>
 
-<%= form_with(scope: :portfolio, url: portfolios_path, method: :post) do |form| %>
-  <% if @portfolio.errors.any? %>
+<%= form_with(model: @briefcase, local: true) do |form| %>
+  <% if @briefcase.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@portfolio.errors.count, "error") %> prohibited this briefcase_item from being saved:</h2>
+      <h2><%= pluralize(@briefcase.errors.count, "error") %> prohibited this briefcase_item from being saved:</h2>
 
       <ul>
-      <% @portfolio.errors.full_messages.each do |message| %>
+      <% @briefcase.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -27,6 +27,15 @@
     <%= form.label :body %>
     <%= form.text_area :body %>
   </div>
+
+  <ul>
+    <%= form.fields_for :technologies do |techno_form| %>
+      <li>
+        <%= techno_form.label :name %>
+        <%= techno_form.text_field :name %>
+      </li>
+    <% end %>
+  </ul>
 
   <div class="actions">
     <%= form.submit %>
