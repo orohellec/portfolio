@@ -1,12 +1,12 @@
 <h1>Portfolio items</h1>
 
-<%= link_to "Create new portfolio item", new_briefcase_path %>
+<%= link_to "Create new portfolio item", new_portfolio_path %>
 
-<% @briefcase_items.each do |briefcase_item| %>
-  <p><%= link_to briefcase_item.title, briefcase_path(briefcase_item) %></p>
-  <p><%= briefcase_item.subtitle %></p>
-  <p><%= briefcase_item.body %></p>
-  <%= image_tag briefcase_item.thumb_image unless briefcase_item.thumb_image.nil? %>
-  <%= link_to "Edit", edit_briefcase_path(briefcase_item) %>
-  <%= link_to 'Destroy', briefcase_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% @portfolios.each do |portfolio| %>
+  <p><%= link_to portfolio.title, portfolio_show_path(portfolio) %></p>
+  <p><%= portfolio.subtitle %></p>
+  <p><%= portfolio.body %></p>
+  <%= image_tag portfolio.thumb_image unless portfolio.thumb_image.nil? %>
+  <%= link_to "Edit", edit_portfolio_path(portfolio) %>
+  <%= link_to 'Destroy', portfolio_path(portfolio), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
