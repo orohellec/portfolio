@@ -70,3 +70,9 @@ end
 end
 
 puts "9 portfolio_items created"
+
+3.times do |technology|
+  Briefcase.last.technologies.create!(name: "Technologie #{technology}")
+end
+
+puts "3 technologies created"
