@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :briefcases, except: [:show]
   get 'angular-items', to: 'briefcases#angular'
   get 'briefcase/:id', to: 'briefcases#show', as: 'briefcase_show'
