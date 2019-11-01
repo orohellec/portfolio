@@ -1,5 +1,6 @@
 class BriefcasesController < ApplicationController
   before_action :set_briefcase, only: [:show, :edit, :update, :destroy]
+  layout 'briefcase'
 
   def angular
     @angular_briefcase_items = Briefcase.angular_briefcase_items
