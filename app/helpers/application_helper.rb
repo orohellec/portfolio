@@ -15,4 +15,8 @@ module ApplicationHelper
       content_tag(:p, class: "source-greeting")
     end
   end
+
+  def copyright_generator
+    OrohellecViewTool::Rendered.copyright 'Olivier Rohellec', 'All rights reserved'
+  end
 end

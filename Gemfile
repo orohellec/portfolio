@@ -59,3 +59,5 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+
+gem 'orohellec_view_tool', git: 'https://github.com/orohellec/orohellec_view_tool'

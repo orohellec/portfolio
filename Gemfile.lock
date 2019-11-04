@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/orohellec/orohellec_view_tool
+  revision: 5ffad14af30e4ec30fd5f9e6190d648affd2fe8e
+  specs:
+    orohellec_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -215,6 +221,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  orohellec_view_tool!
   pg (>= 0.18, < 2.0)
   pry-byebug
   puma (~> 3.11)
