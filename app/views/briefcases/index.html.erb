@@ -1,5 +1,5 @@
 <h1>Briefcase items</h1>
 
-<%= link_to "Create new briefcase item", new_briefcase_path %>
+<%= link_to "Create new briefcase item", new_briefcase_path if logged_in?(:site_admin) %>
 
 <%= render @briefcases %>

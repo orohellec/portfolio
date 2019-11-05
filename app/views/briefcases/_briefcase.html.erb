@@ -2,5 +2,8 @@
   <p><%= briefcase.subtitle %></p>
   <p><%= briefcase.body %></p>
   <%= image_tag briefcase.thumb_image unless briefcase.thumb_image.nil? %>
-  <%= link_to "Edit", edit_briefcase_path(briefcase) %>
-  <%= link_to 'Destroy', briefcase_path(briefcase), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to "Edit", edit_briefcase_path(briefcase) if logged_in?(:site_admin) %>
+  <%= link_to 'Destroy', 
+        briefcase_path(briefcase),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>

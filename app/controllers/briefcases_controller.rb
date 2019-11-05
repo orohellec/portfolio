@@ -1,6 +1,9 @@
 class BriefcasesController < ApplicationController
   before_action :set_briefcase, only: [:show, :edit, :update, :destroy]
   layout 'briefcase'
+  access all: [:show, :index, :angular],
+         user: {except: [:destroy, :new, :create, :update, :edit]},
+         site_admin: :all
 
   def angular
     @angular_briefcase_items = Briefcase.angular_briefcase_items
